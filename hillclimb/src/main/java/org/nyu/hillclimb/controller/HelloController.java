@@ -1,4 +1,4 @@
-package org.nyu.libra.controller;
+package org.nyu.hillclimb.controller;
 
 
 import org.springframework.http.ResponseEntity;

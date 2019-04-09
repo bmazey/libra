@@ -1,4 +1,4 @@
-package org.nyu.libra.config;
+package org.nyu.hillclimb.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
