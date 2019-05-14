@@ -26,6 +26,6 @@ alphabet:
   length: 26
 
 url:
-  ciphertext: "http://localhost:8081/api/cipher/mod"
-  digraph: "http://localhost:8082/api/digraph"
-  decipher: "http://localhost:8080/api/climb/plaintext"
+  ciphertext: "http://libra-cipher.us-east-1.elasticbeanstalk.com/api/cipher/mod"
+  digraph: "http://libra-digraph.us-east-1.elasticbeanstalk.com/api/digraph"
+  decipher: "http://libra-decrypt.us-east-1.elasticbeanstalk.com/api/climb/plaintext"
