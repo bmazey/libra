@@ -23,19 +23,33 @@ import io.swagger.models.HttpMethod;
 import springfox.documentation.spring.web.json.Json;
 
 @RestController
-public class plainTextController {
-	@Autowired
+public class PlaintextController {
+
+    @Autowired
 	HttpClient httpClient;
-	@Autowired
+
+    @Autowired
 	private bodyGenerator bodygenerator;
-	@Value("${url.ciphertext}")
+
+    @Value("${url.ciphertext}")
 	String Curl;
-	@Value("${url.digraph}")
+
+    @Value("${url.digraph}")
 	String Durl;
-	@RequestMapping(value = "/api/entrance",method = RequestMethod.GET)
-	public ResponseEntity<?> getCipher(@RequestParam("plainText") String plainText) {
-		String cipherUrl = Curl + "?plainText=" + plainText;
-		String digraphUrl = Durl + "?plainText=" + plainText;
+
+    @RequestMapping(value = "/api/plaintext",method = RequestMethod.POST)
+	public ResponseEntity<?> getCipher(@RequestParam("plaintext") String plaintext) {
+
+	    // normalize alphabetic content
+	    plaintext = plaintext.toLowerCase();
+
+	    // check for invalid characters
+        if (!plaintext.matches("[a-z\\s]+")) {
+            return ResponseEntity.badRequest().body("plaintext can only contain letters and spaces!");
+        }
+
+		String cipherUrl = Curl + "?plainText=" + plaintext;
+		String digraphUrl = Durl + "?plainText=" + plaintext;
 		HttpMethod method = HttpMethod.GET;
 		MultiValueMap<Json, Json> params = new LinkedMultiValueMap<Json, Json>();
 		Ciphertext ciphertext = httpClient.Cipherclient(cipherUrl, method, params);
