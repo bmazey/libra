@@ -1,2 +1,2 @@
 # libra
-Here is our Cloud Computing project! :)
+Here is our Cloud Computing project! :D
